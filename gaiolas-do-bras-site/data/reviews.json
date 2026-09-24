@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "nome": "João (exemplo)",
+      "cidade": "Aracaju/SE",
+      "nota": 5,
+      "texto": "Passeador resistente, meu galo adorou o espaço. Chegou certinho e rápido!",
+      "youtube": "aqzcbsvVIQI",
+      "instagram": ""
+    },
+    {
+      "nome": "Marcos (exemplo)",
+      "cidade": "Itabaiana/SE",
+      "nota": 5,
+      "texto": "Comprei 2 passeadores, qualidade de fábrica e o preço vale muito a pena.",
+      "youtube": "",
+      "instagram": ""
+    },
+    {
+      "nome": "Rafael (exemplo)",
+      "cidade": "N. S. do Socorro/SE",
+      "nota": 5,
+      "texto": "Ganhei na rifa e o produto é excelente. Recomendo demais!",
+      "youtube": "",
+      "instagram": "https://www.instagram.com/gaiolasdobras/"
+    }
+  ]
+}

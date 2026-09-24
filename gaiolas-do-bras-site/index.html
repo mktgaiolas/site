@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Gaiolas do Bras - fabricacao propria de gaiolas, passeadores e porteiras para galistas. Fale no WhatsApp.">
+<title>Gaiolas do Brás</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap">
+<style>
+  :root{
+    color-scheme: dark;
+    --ink:#0a0a0b;
+    --ink-2:#111114;
+    --panel:#16161a;
+    --panel-2:#1d1d22;
+    --line:#2b2b31;
+    --line-soft:#232329;
+    --text:#f4f2ec;
+    --muted:#a49f96;
+    --muted-2:#7c776e;
+    --gold-1:#ffe6a0;
+    --gold-2:#f2c14e;
+    --gold-3:#cf9a2c;
+    --gold-deep:#8f6816;
+    --red:#d3182a;
+    --red-2:#a80f1d;
+    --steel:#cdd3db;
+    --wa:#25d366;
+    --wa-deep:#128c3e;
+    --maxw:1120px;
+    --gold-grad:linear-gradient(180deg,var(--gold-1) 0%,var(--gold-2) 45%,var(--gold-3) 100%);
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--text);
+    font-family:"Barlow","Segoe UI",system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{margin:0;line-height:1.02;text-wrap:balance}
+  p{margin:0}
+  a{color:inherit}
+  .display{font-family:"Anton","Barlow Condensed",Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em}
+  .cond{font-family:"Barlow Condensed","Barlow",sans-serif}
+  .gold-text{
+    background:var(--gold-grad);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:20px}
+  section{position:relative}
+
+  /* wire mesh texture */
+  .mesh{
+    position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background-image:
+      linear-gradient(var(--line-soft) 1px,transparent 1px),
+      linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+    background-size:26px 26px;
+    -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 20%,#000 0%,transparent 75%);
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 20%,#000 0%,transparent 75%);
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:50;
+    background:rgba(10,10,11,.86);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .topbar .row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:12px}
+  .brand{display:flex;align-items:center;gap:11px;min-width:0}
+  .emblem{width:42px;height:42px;flex:0 0 auto;border-radius:50%;
+    background:radial-gradient(circle at 50% 35%,#2a2a30,#0c0c0e 70%);
+    border:2px solid var(--gold-3);display:grid;place-items:center;
+    box-shadow:0 0 0 2px #0a0a0b,0 4px 14px rgba(0,0,0,.6)}
+  .emblem svg{width:26px;height:26px}
+  .brand-name{font-size:18px;letter-spacing:.04em;line-height:1}
+  .brand-sub{font-size:9.5px;letter-spacing:.28em;color:var(--gold-2);text-transform:uppercase}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;justify-content:center;
+    font-family:"Barlow Condensed",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.05em;
+    text-decoration:none;border-radius:999px;border:0;cursor:pointer;
+    padding:13px 22px;font-size:16px;line-height:1;white-space:nowrap;transition:transform .12s ease,filter .12s ease;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-wa{background:linear-gradient(180deg,#2be972,var(--wa-deep));color:#04270f;font-weight:700;
+    box-shadow:0 8px 22px rgba(18,140,62,.35)}
+  .btn-gold{background:var(--gold-grad);color:#241a04;font-weight:700;box-shadow:0 8px 22px rgba(207,154,44,.25)}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--text)}
+  .btn-sm{padding:10px 16px;font-size:14px}
+  .btn svg{width:18px;height:18px}
+  .topbar .btn-wa{padding:11px 18px;font-size:15px}
+  @media(max-width:560px){.topbar .cta-label{display:none}.topbar .btn-wa{padding:11px}}
+
+  /* ---------- hero ---------- */
+  .hero{padding-block:52px 46px;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 78% 0%,rgba(207,154,44,.16),transparent 55%),
+      radial-gradient(90% 70% at 0% 100%,rgba(211,24,42,.12),transparent 60%),
+      var(--ink);
+    border-bottom:1px solid var(--line-soft)}
+  .kicker{display:inline-flex;align-items:center;gap:8px;
+    background:var(--red);color:#fff;font-family:"Barlow Condensed",sans-serif;font-weight:700;
+    text-transform:uppercase;letter-spacing:.14em;font-size:13px;padding:7px 15px;border-radius:6px;
+    box-shadow:0 4px 12px rgba(168,15,29,.4)}
+  .hero h1{font-size:clamp(46px,10vw,104px);margin-top:20px}
+  .hero h1 .l2{display:block}
+  .hero-tag{font-family:"Barlow Condensed",sans-serif;font-weight:600;text-transform:uppercase;
+    font-size:clamp(17px,3.2vw,23px);letter-spacing:.02em;color:var(--steel);margin-top:14px;max-width:22ch}
+  .hero-lead{color:var(--muted);margin-top:16px;max-width:46ch;font-size:17px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .trust{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line-soft)}
+  .trust span{display:inline-flex;align-items:center;gap:8px;font-family:"Barlow Condensed",sans-serif;
+    text-transform:uppercase;letter-spacing:.06em;font-size:14px;color:var(--muted)}
+  .trust svg{width:17px;height:17px;color:var(--gold-2)}
+
+  /* seal */
+  .seal{position:absolute;right:6%;top:64px;width:150px;height:150px;display:grid;place-items:center;text-align:center;
+    border-radius:50%;background:radial-gradient(circle at 50% 35%,#20160a,#0c0c0e 72%);
+    border:2px dashed var(--gold-3);color:var(--gold-1);transform:rotate(-9deg)}
+  .seal b{font-family:"Anton",sans-serif;font-size:30px;line-height:.9;color:transparent;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text}
+  .seal small{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.18em;font-size:10px;color:var(--gold-2);display:block;margin-top:4px}
+  @media(max-width:900px){.seal{display:none}}
+
+  /* ---------- section head ---------- */
+  .sec{padding-block:60px}
+  .eyebrow{font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;
+    letter-spacing:.22em;font-size:13px;color:var(--gold-2)}
+  .sec h2{font-size:clamp(32px,5.5vw,52px);margin-top:10px}
+  .sec-intro{color:var(--muted);margin-top:12px;max-width:52ch;font-size:17px}
+
+  /* ---------- product hero ---------- */
+  .product{background:var(--ink-2);border-block:1px solid var(--line-soft)}
+  .prod-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center;margin-top:30px}
+  @media(max-width:820px){.prod-grid{grid-template-columns:1fr;gap:26px}}
+  .cage{position:relative;border-radius:var(--radius);padding:26px;
+    background:linear-gradient(160deg,#1c1c21,#0e0e11);border:1px solid var(--line);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 26px 50px rgba(0,0,0,.5);overflow:hidden}
+  .cage-badge{position:absolute;top:16px;left:16px;z-index:2;background:var(--red);color:#fff;
+    font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+    font-size:12px;padding:6px 12px;border-radius:5px}
+  .cage-art{aspect-ratio:4/3;border-radius:10px;position:relative;
+    background:
+      repeating-linear-gradient(0deg,rgba(205,211,219,.34) 0 1px,transparent 1px 15px),
+      repeating-linear-gradient(90deg,rgba(205,211,219,.34) 0 1px,transparent 1px 15px),
+      linear-gradient(160deg,#3a3d44,#191a1e);
+    border:2px solid #4c515a;
+    box-shadow:inset 0 0 40px rgba(0,0,0,.6),inset 0 0 0 6px rgba(0,0,0,.25)}
+  .cage-art::after{content:"";position:absolute;inset:0;border-radius:8px;
+    background:linear-gradient(115deg,rgba(255,255,255,.16),transparent 40%)}
+  .dims{display:flex;justify-content:center;gap:0;margin-top:18px}
+  .dims div{flex:1;text-align:center;padding:10px 6px;border-right:1px solid var(--line)}
+  .dims div:last-child{border-right:0}
+  .dims b{display:block;font-family:"Anton",sans-serif;font-size:30px;color:transparent;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text}
+  .dims small{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:var(--muted)}
+
+  .price-card h3{font-size:clamp(30px,5vw,42px)}
+  .pricetag{display:flex;align-items:baseline;gap:6px;margin-top:16px}
+  .pricetag .cur{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:26px;color:var(--gold-2)}
+  .pricetag .val{font-family:"Anton",sans-serif;font-size:clamp(62px,13vw,90px);line-height:.85;color:transparent;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text}
+  .pricetag .unit{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-size:15px}
+  .from-fabric{display:inline-block;margin-top:6px;font-family:"Barlow Condensed",sans-serif;font-weight:700;
+    text-transform:uppercase;letter-spacing:.1em;color:var(--red);font-size:15px}
+  .feat{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px}
+  .feat li{display:flex;gap:12px;align-items:flex-start}
+  .feat .ic{flex:0 0 auto;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;
+    background:rgba(242,193,78,.12);border:1px solid rgba(242,193,78,.3)}
+  .feat .ic svg{width:18px;height:18px;color:var(--gold-2)}
+  .feat b{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.04em;font-size:16px;display:block}
+  .feat span{color:var(--muted);font-size:14.5px}
+
+  /* ---------- other products ---------- */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+  @media(max-width:820px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px;
+    display:flex;flex-direction:column;gap:12px;transition:border-color .15s ease,transform .15s ease}
+  .card:hover{border-color:var(--gold-3);transform:translateY(-3px)}
+  .card .ic{width:46px;height:46px;border-radius:11px;display:grid;place-items:center;
+    background:linear-gradient(160deg,#26262c,#141418);border:1px solid var(--line)}
+  .card .ic svg{width:24px;height:24px;color:var(--gold-2)}
+  .card h3{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.03em;font-size:22px}
+  .card p{color:var(--muted);font-size:15px}
+  .card .meta{margin-top:auto;font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.08em;
+    font-size:13px;color:var(--gold-2)}
+
+  /* ---------- rifa ---------- */
+  .rifa{background:
+      radial-gradient(90% 80% at 50% 0%,rgba(211,24,42,.18),transparent 60%),
+      linear-gradient(180deg,#120b0c,#0a0a0b);
+    border-block:1px solid var(--line-soft)}
+  .rifa-head{text-align:center;max-width:620px;margin:0 auto}
+  .rifa-head h2{font-size:clamp(38px,8vw,72px)}
+  .prizes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+  @media(max-width:720px){.prizes{grid-template-columns:1fr}}
+  .prize{background:linear-gradient(180deg,#1b1216,#120c0e);border:1px solid #3a2226;border-radius:14px;
+    padding:22px;text-align:center;position:relative}
+  .prize .n{font-family:"Anton",sans-serif;font-size:40px;color:transparent;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;line-height:.9}
+  .prize .t{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:17px;margin-top:4px}
+  .prize small{color:var(--muted);font-size:13px;display:block;margin-top:4px}
+  .prize-or{display:none}
+  .dezena{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 18px;margin-top:30px;
+    background:var(--red);border-radius:14px;padding:18px 22px;box-shadow:0 14px 30px rgba(168,15,29,.35)}
+  .dezena .lbl{font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#ffdede;font-size:18px}
+  .dezena .v{font-family:"Anton",sans-serif;font-size:46px;color:#fff;line-height:.9}
+  .draws{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+  @media(max-width:640px){.draws{grid-template-columns:1fr}}
+  .draw{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .draw b{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--gold-2);font-size:15px;display:block}
+  .draw span{color:var(--muted);font-size:14px}
+  .rifa-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:30px}
+
+  /* ---------- proof ---------- */
+  .proof{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;margin-top:30px}
+  @media(max-width:820px){.proof{grid-template-columns:1fr}}
+  .quote{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--gold-2);border-radius:14px;padding:28px}
+  .quote .stars{color:var(--gold-2);letter-spacing:3px;font-size:20px}
+  .quote p{font-size:22px;font-family:"Barlow Condensed",sans-serif;margin-top:12px;line-height:1.3}
+  .quote cite{display:block;margin-top:14px;color:var(--muted);font-style:normal;font-size:14px;text-transform:uppercase;letter-spacing:.08em}
+  .values{display:grid;gap:12px}
+  .value{background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;gap:12px;align-items:center}
+  .value svg{width:22px;height:22px;color:var(--gold-2);flex:0 0 auto}
+  .value b{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:17px}
+
+  /* ---------- final cta ---------- */
+  .final{background:
+      radial-gradient(80% 120% at 50% 0%,rgba(207,154,44,.2),transparent 60%),
+      linear-gradient(180deg,#131009,#0a0a0b);
+    border-top:1px solid var(--line-soft);text-align:center}
+  .final h2{font-size:clamp(34px,7vw,64px)}
+  .final p{color:var(--muted);max-width:44ch;margin:14px auto 0;font-size:18px}
+  .num-box{display:inline-flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:26px;
+    background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 18px}
+  .num-box .num{font-family:"Anton",sans-serif;font-size:clamp(24px,6vw,34px);letter-spacing:.02em;color:var(--text)}
+  .copy{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:8px;
+    padding:9px 12px;font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.06em;
+    font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+  .copy svg{width:15px;height:15px}
+  .final .btn{margin-top:26px;padding:17px 34px;font-size:19px}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink);border-top:1px solid var(--line-soft);padding-block:34px}
+  .foot{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+  .foot .brand-name{font-size:20px}
+  .foot-links{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center}
+  .foot-links a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--muted);
+    font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:15px}
+  .foot-links a:hover{color:var(--gold-2)}
+  .foot-links svg{width:18px;height:18px}
+  .legal{color:var(--muted-2);font-size:12.5px;margin-top:22px;line-height:1.6}
+
+  /* floating wa */
+  .fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:60;
+    display:inline-flex;align-items:center;gap:10px;text-decoration:none;
+    background:linear-gradient(180deg,#2be972,var(--wa-deep));color:#04270f;font-weight:700;
+    font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.04em;
+    padding:14px 18px;border-radius:999px;box-shadow:0 10px 26px rgba(18,140,62,.5);
+    animation:pulse 2.4s ease-in-out infinite}
+  .fab svg{width:24px;height:24px}
+  @keyframes pulse{0%,100%{box-shadow:0 10px 26px rgba(18,140,62,.5)}50%{box-shadow:0 10px 34px rgba(43,233,114,.7)}}
+  @media(max-width:560px){.fab .fab-label{display:none}.fab{padding:15px}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+  /* ---------- images ---------- */
+  .logo-img{height:46px;width:auto;display:block;border-radius:8px}
+  @media(max-width:560px){.logo-img{height:40px}}
+  .frame{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);
+    box-shadow:0 26px 60px rgba(0,0,0,.55);background:#000;position:relative}
+  .frame::after{content:"";position:absolute;inset:0;border-radius:var(--radius);
+    box-shadow:inset 0 0 0 1px rgba(242,193,78,.15);pointer-events:none}
+  .frame img{display:block;width:100%;height:auto}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:38px;align-items:center}
+  @media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:30px}}
+  .rifa-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:34px;align-items:center;margin-top:30px}
+  @media(max-width:860px){.rifa-grid{grid-template-columns:1fr;gap:26px}}
+
+  /* ---------- avaliações ---------- */
+  .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+  @media(max-width:820px){.reviews{grid-template-columns:1fr}}
+  .review{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column}
+  .review .vid{position:relative;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden}
+  .review .vid img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85}
+  .review .vid .play{position:absolute;inset:0;display:grid;place-items:center}
+  .review .vid .play span{width:56px;height:56px;border-radius:50%;
+    background:rgba(211,24,42,.92);display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.5)}
+  .review .vid .play svg{width:24px;height:24px;color:#fff;margin-left:3px}
+  .review .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .review .body{padding:20px;display:flex;flex-direction:column;gap:8px}
+  .review .stars{color:var(--gold-2);letter-spacing:2px;font-size:16px}
+  .review p{color:var(--text);font-size:15.5px;line-height:1.5}
+  .review .who{margin-top:auto;padding-top:6px;font-family:"Barlow Condensed",sans-serif;
+    text-transform:uppercase;letter-spacing:.06em;font-size:14px;color:var(--muted)}
+  .review .ig{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--gold-2);
+    font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:14px}
+  .review .ig svg{width:16px;height:16px}
+  .reviews-note{color:var(--muted-2);font-size:13px;margin-top:16px}
+</style>
+</head>
+<body>
+
+
+<!-- ===================== TOP BAR ===================== -->
+<div class="topbar">
+  <div class="wrap row">
+    <div class="brand">
+      <img class="logo-img" src="assets/logo.png" alt="Gaiolas do Brás">
+      <span class="brand-sub" style="display:none">Qualidade que protege</span>
+    </div>
+    <a class="btn btn-wa" data-ev="wa_topo" data-wa="Ola! Vim pelo site das Gaiolas do Bras e quero mais informacoes." href="#">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.4.5-.3.3c-.2.2-.3.4-.2.6.2.4.9 1.4 1.8 2.2 1.2 1 2 1.3 2.3 1.5.2.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.7-.1 1.4Z"/></svg>
+      <span class="cta-label">WhatsApp</span>
+    </a>
+  </div>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="mesh"></div>
+  <div class="wrap hero-grid" style="position:relative">
+    <div class="hero-copy">
+    <span class="kicker">Direto da fábrica • Sergipe</span>
+    <h1 class="display"><span class="gold-text">Gaiolas &amp;</span><span class="l2 gold-text">Passeadores</span></h1>
+    <p class="hero-tag">Mais espaço, conforto e segurança para o seu campeão.</p>
+    <p class="hero-lead">Fabricação própria de passeadores, gaiolas e porteiras para galistas e criadores. Estrutura reforçada, pintura epóxi eletrostática e medidas sob encomenda — com preço de fábrica.</p>
+    <div class="hero-cta">
+      <a class="btn btn-wa" data-ev="wa_hero" data-wa="Ola! Vim pelo site e quero saber mais sobre as gaiolas e passeadores." href="#">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.4.5-.3.3c-.2.2-.3.4-.2.6.2.4.9 1.4 1.8 2.2 1.2 1 2 1.3 2.3 1.5.2.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.7-.1 1.4Z"/></svg>
+        Falar no WhatsApp
+      </a>
+      <a class="btn btn-ghost" data-ev="ver_produtos" href="#produtos">Ver produtos</a>
+    </div>
+    <div class="trust">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Z"/></svg>Produto feito pra durar</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Compromisso com você</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M6 7l1 12h10l1-12"/></svg>Entrega pra todo Brasil</span>
+    </div>
+    </div>
+    <div class="frame"><img src="assets/passeador.jpg" alt="Passeador para galo 120x70x70 por R$ 250 — Gaiolas do Brás"></div>
+  </div>
+</section>
+
+<!-- ===================== PRODUTO DESTAQUE ===================== -->
+<section class="product sec" id="produtos">
+  <div class="wrap">
+    <span class="eyebrow">Produto destaque</span>
+    <h2 class="display">Passeador para galo</h2>
+    <p class="sec-intro">O modelo mais pedido pelos galistas: estrutura ampla e resistente que dá liberdade e proteção ao seu campeão.</p>
+
+    <div class="prod-grid">
+      <div class="cage">
+        <span class="cage-badge">Preço de fábrica</span>
+        <div class="frame" style="box-shadow:none;border:0"><img src="assets/cage.jpg" alt="Passeador de arame reforçado, medidas 120 por 70 por 70 centímetros"></div>
+        <div class="dims">
+          <div><b>120</b><small>Comprimento cm</small></div>
+          <div><b>70</b><small>Altura cm</small></div>
+          <div><b>70</b><small>Largura cm</small></div>
+        </div>
+      </div>
+
+      <div class="price-card">
+        <h3 class="display gold-text">O melhor custo-benefício</h3>
+        <div class="pricetag">
+          <span class="cur">R$</span><span class="val" id="cfg-preco">250</span><span class="unit">,00<br>a unidade</span>
+        </div>
+        <span class="from-fabric">Direto da fábrica</span>
+        <ul class="feat">
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Qualidade em cada detalhe</b><span>Acabamento cuidadoso, sem pontas soltas.</span></div></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12h8M10 8l-3 4 3 4M14 8l3 4-3 4"/></svg></span><div><b>Resistência que dá segurança</b><span>Arame reforçado que aguenta o dia a dia.</span></div></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg></span><div><b>Fabricação própria</b><span>Feito por nós, do início ao fim.</span></div></li>
+        </ul>
+        <a class="btn btn-gold" style="margin-top:22px" data-ev="wa_passeador" data-wa="Ola! Tenho interesse no Passeador para galo (120x70x70) por R$ 250. Pode me passar mais informacoes?" href="#">Quero um passeador</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LINHA DE PRODUTOS ===================== -->
+<section class="sec">
+  <div class="wrap">
+    <span class="eyebrow">A nossa linha</span>
+    <h2 class="display">Feito para a sua cocheira</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 6V4M17 6V4M8 10v9M12 10v9M16 10v9"/></svg></span>
+        <h3>Passeadores</h3>
+        <p>Amplo espaço para o galo se exercitar com conforto e segurança. Modelo 120×70×70.</p>
+        <span class="meta">A partir de R$ 250</span>
+      </div>
+      <div class="card">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 20V8h18v12M3 14h18M7 8v12M12 8v12M17 8v12M3 8l9-4 9 4"/></svg></span>
+        <h3>Porteiras</h3>
+        <p>Porteiras resistentes para organizar e proteger a sua criação. Medida 80×60.</p>
+        <span class="meta">Sob consulta</span>
+      </div>
+      <div class="card">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.2 4.5L19 8l-3.5 3.4L16 16l-4-2-4 2 .5-4.6L5 8l4.8-.5L12 3Z"/></svg></span>
+        <h3>Encomenda sob medida</h3>
+        <p>Cores e medidas personalizadas com pintura epóxi eletrostática — como o azul del Rei.</p>
+        <span class="meta">Fazemos do seu jeito</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RIFA ===================== -->
+<section class="rifa sec">
+  <div class="wrap">
+    <div class="rifa-grid">
+      <div class="frame"><img src="assets/rifa.jpg" alt="Rifa Gaiolas do Brás — 5 passeadores, 20 porteiras ou R$ 600 no Pix, dezena R$ 12,50"></div>
+      <div>
+        <span class="eyebrow" style="color:var(--red)">Todo dia tem</span>
+        <h2 class="display gold-text">Rifa Gaiolas do Brás</h2>
+        <p class="sec-intro">O ganhador escolhe o prêmio: <b style="color:var(--text)">5 passeadores</b>, <b style="color:var(--text)">20 porteiras</b> ou <b style="color:var(--text)">R$ 600 no Pix</b>. Teste a sua sorte 🍀</p>
+
+        <div class="dezena" style="justify-content:flex-start">
+          <span class="lbl">Dezena</span>
+          <span class="v" id="cfg-dezena">R$ 12,50</span>
+          <span class="lbl">Sorteio todo dia!</span>
+        </div>
+
+        <div class="draws">
+          <div class="draw"><b>Seg e Ter</b><span>Banca Abaese/SE</span></div>
+          <div class="draw"><b>Qua e Dom</b><span>Loteria Federal</span></div>
+          <div class="draw"><b>Qui e Sex</b><span>Banca Abaese/SE</span></div>
+        </div>
+
+        <div class="rifa-cta" style="justify-content:flex-start">
+          <a class="btn btn-wa" data-ev="wa_rifa" data-wa="Ola! Quero participar da Rifa Gaiolas do Bras (dezena R$ 12,50). Como faco?" href="#">Quero participar</a>
+          <a class="btn btn-ghost" id="cfg-grupo" data-ev="grupo_rifa" target="_blank" rel="noopener" href="https://chat.whatsapp.com/HK3Tfj1UbiJLpSG8JtnDHv?s=sh&p=i&mlu=4&ilr=4">Grupo da rifa</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROVA SOCIAL / VALORES ===================== -->
+<section class="sec">
+  <div class="wrap">
+    <span class="eyebrow">Quem compra, recomenda</span>
+    <h2 class="display">Confiança de galista pra galista</h2>
+    <div class="proof">
+      <blockquote class="quote">
+        <div class="stars" aria-label="5 estrelas">★★★★★</div>
+        <p>“Ganhador satisfeito! Produto de qualidade!”</p>
+        <cite>— Cliente Gaiolas do Brás</cite>
+      </blockquote>
+      <div class="values">
+        <div class="value"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Z"/></svg><b>Credibilidade</b></div>
+        <div class="value"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg><b>Compromisso</b></div>
+        <div class="value"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg><b>Transparência com o cliente</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AVALIAÇÕES ===================== -->
+<section class="sec" id="avaliacoes">
+  <div class="wrap">
+    <span class="eyebrow">Avaliações</span>
+    <h2 class="display">O que dizem nossos clientes</h2>
+    <p class="sec-intro">Vídeos e depoimentos de quem já comprou. Mandou seu vídeo no WhatsApp? Ele pode aparecer aqui.</p>
+    <div class="reviews" id="reviews-grid"></div>
+    <p class="reviews-note" id="reviews-note"></p>
+  </div>
+</section>
+
+<!-- ===================== CTA FINAL ===================== -->
+<section class="final sec">
+  <div class="wrap">
+    <span class="eyebrow">Fale agora</span>
+    <h2 class="display gold-text">Peça o seu pelo WhatsApp</h2>
+    <p>Tire dúvidas, peça medidas e cores sob encomenda ou garanta a sua dezena na rifa. Atendimento rápido, direto com a fábrica.</p>
+    <div class="num-box">
+      <span class="num" id="num">(79) 99848-0538</span>
+      <button class="copy" id="copyBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg>Copiar</button>
+    </div>
+    <br>
+    <a class="btn btn-wa" data-ev="wa_final" data-wa="Ola! Vim pelo site das Gaiolas do Bras e quero fazer um pedido." href="#">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.4.5-.3.3c-.2.2-.3.4-.2.6.2.4.9 1.4 1.8 2.2 1.2 1 2 1.3 2.3 1.5.2.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.7-.1 1.4Z"/></svg>
+      Chamar no WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="brand">
+        <img class="logo-img" style="height:56px" src="assets/logo.png" alt="Gaiolas do Brás">
+        <span class="brand-sub">Nossa Senhora do Socorro • Sergipe</span>
+      </div>
+      <div class="foot-links">
+        <a data-ev="wa_rodape" href="https://wa.me/5579998480538" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.4.5-.3.3c-.2.2-.3.4-.2.6.2.4.9 1.4 1.8 2.2 1.2 1 2 1.3 2.3 1.5.2.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.7-.1 1.4Z"/></svg>(79) 99848-0538</a>
+        <a data-ev="instagram" href="https://instagram.com/gaiolasdobras" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>@gaiolasdobras</a>
+      </div>
+    </div>
+    <p class="legal">Gaiolas do Brás — fabricação própria de gaiolas, passeadores e porteiras. Preços e prêmios sujeitos a alteração; confirme os valores e condições da rifa pelo WhatsApp. Produtos destinados à criação e ao bem-estar animal.</p>
+  </div>
+</footer>
+
+<a class="fab" id="fab" data-ev="wa_flutuante" href="https://wa.me/5579998480538" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.4.5-.3.3c-.2.2-.3.4-.2.6.2.4.9 1.4 1.8 2.2 1.2 1 2 1.3 2.3 1.5.2.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.7-.1 1.4Z"/></svg>
+  <span class="fab-label">WhatsApp</span>
+</a>
+
+<script>
+  function track(label){ try{ if(window.gtag){ gtag("event","clique_botao",{botao:label}); } }catch(e){} }
+  function initGA(id){
+    if(id && id.indexOf("G-")===0 && id!=="G-XXXXXXXXXX"){
+      var s=document.createElement("script");
+      s.async=true; s.src="https://www.googletagmanager.com/gtag/js?id="+id;
+      document.head.appendChild(s);
+      window.dataLayer=window.dataLayer||[];
+      window.gtag=function(){dataLayer.push(arguments);};
+      gtag("js",new Date()); gtag("config",id);
+    }
+  }
+
+  // ---- state (valores padrão; podem ser sobrescritos por data/config.json) ----
+  var CFG={
+    whatsapp:"5579998480538",
+    whatsapp_exibicao:"(79) 99848-0538",
+    preco_unidade:"250",
+    rifa_dezena:"R$ 12,50",
+    grupo_rifa:"https://chat.whatsapp.com/HK3Tfj1UbiJLpSG8JtnDHv?s=sh&p=i&mlu=4&ilr=4",
+    ga_id:"G-XXXXXXXXXX"
+  };
+
+  function wireWhatsApp(){
+    var phone=CFG.whatsapp;
+    document.querySelectorAll("[data-wa]").forEach(function(a){
+      var msg=a.getAttribute("data-wa")||"";
+      a.href="https://wa.me/"+phone+"?text="+encodeURIComponent(msg);
+      a.target="_blank"; a.rel="noopener";
+    });
+    var wa="https://wa.me/"+phone;
+    var fab=document.getElementById("fab"); if(fab) fab.href=wa;
+    var rod=document.querySelector('[data-ev="wa_rodape"]'); if(rod) rod.href=wa;
+    var set=function(id,txt){var el=document.getElementById(id); if(el&&txt!=null) el.textContent=txt;};
+    set("num",CFG.whatsapp_exibicao);
+    set("cfg-preco",CFG.preco_unidade);
+    set("cfg-dezena",CFG.rifa_dezena);
+    var g=document.getElementById("cfg-grupo"); if(g&&CFG.grupo_rifa) g.href=CFG.grupo_rifa;
+  }
+
+  function ytId(v){
+    if(!v) return "";
+    v=(""+v).trim();
+    var m=v.match(/(?:youtu\.be\/|v=|embed\/)([\w-]{6,})/);
+    return m?m[1]:v;
+  }
+  function stars(n){ n=Math.max(0,Math.min(5,parseInt(n||5,10))); return "★★★★★".slice(0,n)+"☆☆☆☆☆".slice(0,5-n); }
+  function esc(s){ return (""+(s||"")).replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}); }
+
+  function renderReviews(list){
+    var grid=document.getElementById("reviews-grid");
+    if(!grid) return;
+    grid.innerHTML="";
+    (list||[]).forEach(function(r){
+      var card=document.createElement("div"); card.className="review";
+      var yid=ytId(r.youtube);
+      if(yid){
+        var vid=document.createElement("div"); vid.className="vid";
+        var img=document.createElement("img");
+        img.loading="lazy"; img.alt="Vídeo de "+esc(r.nome);
+        img.src="https://img.youtube.com/vi/"+yid+"/hqdefault.jpg";
+        img.onerror=function(){ this.style.display="none"; };
+        var play=document.createElement("div"); play.className="play";
+        play.innerHTML='<span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>';
+        vid.appendChild(img); vid.appendChild(play);
+        vid.addEventListener("click",function(){
+          vid.innerHTML='<iframe allow="autoplay; encrypted-media" allowfullscreen '+
+            'src="https://www.youtube.com/embed/'+yid+'?autoplay=1"></iframe>';
+          track("video_avaliacao");
+        });
+        card.appendChild(vid);
+      }
+      var body=document.createElement("div"); body.className="body";
+      var html='<div class="stars">'+stars(r.nota)+'</div>'+
+               '<p>“'+esc(r.texto)+'”</p>';
+      if(!yid && r.instagram){
+        html+='<a class="ig" target="_blank" rel="noopener" href="'+esc(r.instagram)+'">'+
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>Ver vídeo no Instagram</a>';
+      }
+      html+='<div class="who">— '+esc(r.nome)+(r.cidade?' · '+esc(r.cidade):'')+'</div>';
+      body.innerHTML=html;
+      card.appendChild(body);
+      grid.appendChild(card);
+    });
+  }
+
+  // ---- boot ----
+  (function(){
+    // GA events + copy button (independem de config)
+    document.querySelectorAll("[data-ev]").forEach(function(a){
+      a.addEventListener("click",function(){ track(a.getAttribute("data-ev")); });
+    });
+    var btn=document.getElementById("copyBtn");
+    if(btn){
+      btn.addEventListener("click",function(){
+        var done=function(){var o=btn.innerHTML;btn.textContent="Copiado!";setTimeout(function(){btn.innerHTML=o;},1600);};
+        try{ navigator.clipboard.writeText(CFG.whatsapp_exibicao).then(done,function(){fb();}); }catch(e){ fb(); }
+        function fb(){ try{var r=document.createRange();r.selectNodeContents(document.getElementById("num"));
+          var s=window.getSelection();s.removeAllRanges();s.addRange(r);done();}catch(e){} }
+      });
+    }
+
+    // carrega config.json (opcional) e depois liga tudo
+    fetch("data/config.json",{cache:"no-store"}).then(function(r){return r.json();})
+      .then(function(c){ Object.assign(CFG,c||{}); }).catch(function(){})
+      .then(function(){ wireWhatsApp(); initGA(CFG.ga_id); });
+
+    // carrega avaliações
+    fetch("data/reviews.json",{cache:"no-store"}).then(function(r){return r.json();})
+      .then(function(data){
+        var list=Array.isArray(data)?data:((data&&data.items)||[]);
+        renderReviews(list);
+        var n=document.getElementById("reviews-note");
+        if(n) n.textContent = (list.length? "" : "Ainda sem avaliações.");
+      })
+      .catch(function(){
+        var n=document.getElementById("reviews-note");
+        if(n) n.textContent="As avaliações aparecem quando o site estiver publicado no Netlify.";
+      });
+  })();
+</script>
+
+
+  <!-- Netlify Identity (login do painel /admin) -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user){
+        if (!user) {
+          window.netlifyIdentity.on("login", function(){ document.location.href = "/admin/"; });
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

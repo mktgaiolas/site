@@ -1,0 +1,43 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets"
+public_folder: "assets"
+
+locale: "pt"
+
+collections:
+  - name: "config"
+    label: "Configurações do site"
+    files:
+      - name: "principal"
+        label: "Dados principais"
+        file: "data/config.json"
+        fields:
+          - { label: "WhatsApp (só números, com 55 na frente)", name: "whatsapp", widget: "string", hint: "Ex.: 5579998480538" }
+          - { label: "WhatsApp (como aparece no site)", name: "whatsapp_exibicao", widget: "string", hint: "Ex.: (79) 99848-0538" }
+          - { label: "Preço do passeador (só o número)", name: "preco_unidade", widget: "string", hint: "Ex.: 250" }
+          - { label: "Valor da dezena da rifa", name: "rifa_dezena", widget: "string", hint: "Ex.: R$ 12,50" }
+          - { label: "Link do grupo da rifa", name: "grupo_rifa", widget: "string" }
+          - { label: "ID do Google Analytics (G-...)", name: "ga_id", widget: "string", required: false }
+
+  - name: "avaliacoes"
+    label: "Avaliações dos clientes"
+    files:
+      - name: "lista"
+        label: "Lista de avaliações"
+        file: "data/reviews.json"
+        fields:
+          - label: "Avaliações"
+            name: "items"
+            widget: "list"
+            label_singular: "Avaliação"
+            summary: "{{fields.nome}}"
+            fields:
+              - { label: "Nome do cliente", name: "nome", widget: "string" }
+              - { label: "Cidade", name: "cidade", widget: "string", required: false }
+              - { label: "Nota (1 a 5 estrelas)", name: "nota", widget: "number", default: 5, value_type: "int", min: 1, max: 5 }
+              - { label: "Depoimento", name: "texto", widget: "text" }
+              - { label: "Vídeo do YouTube (link ou ID)", name: "youtube", widget: "string", required: false, hint: "Cole o link do vídeo. Deixe vazio se não tiver." }
+              - { label: "Link do Instagram (se o vídeo for do Insta)", name: "instagram", widget: "string", required: false }
